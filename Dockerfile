@@ -6,7 +6,8 @@ COPY . .
 
 ENV CORPUS=ab,ab,bc
 
-RUN pip3 install .
+RUN pip install -r requirements.txt
 
 
-ENTRYPOINT ["countcli"]
+ENTRYPOINT ["python"]
+CMD ["count/main.py"]

@@ -1,38 +1,24 @@
-# countcli
+# MdM Count
 
 Counts the occurrences of query strings in a corpus of strings.
 
+## Build
 
-## With Docker
+In the root directory of this repository, run: `docker build . -t mdm_test`
 
-### Build
+## Run
 
-In the root directory of this repository, run `docker build . -t mdm_test`
-
-### Run
-
-1. Run `docker run -t mdm_test ab,abc` where `ab,abc` is your query strings.
-2. The result is displayed in the console, with the example: `{'ab': 2, 'abc': 0}`
+1. Run `docker run -p 5000:5000 mdm_test:latest`
+2. A web server will starts and listen on port 5000.
 
 To run and change the corpus:
-`docker run --env CORPUS=foo,lorem,ipsum -t mdm_test foo,bar`
+`docker run -p 5000:5000 --env CORPUS=foo,lorem,ipsum mdm_test:latest`
 
-## Locally
+## Use
 
-Prerequisites:  Python 3.7
+1. In a web browser go to: `http://127.0.0.1:5000`
+2. Click on `default`, `GET /occurrences` then `Try it out`. 
+3. Add a value in `q` field then click `Execute.
+4. The response will be displayed.
 
-### Install
-
-In the root directory of this repository, run `pip3 install .`
-
-### Run
-
-1. Set the environment variable `CORPUS` with the set of strings to look into. 
-   For example in bash: `export CORPUS=ab,ab,abc`
-2. Run the councli: `countcli ab,abc,bc` where `ab,abc,bc` are the query strings to count.
-3. The result is displayed in the console, with the example: `{'ab': 2, 'abc': 1, 'bc': 0}`
- 
-### Uninstall
- 
- Run `pip3 uninstall countcli`
- 
+Instead of steps 1 to 4, it is possible directly enter in a browser `http:127.0.0.1:5000/occurrences?q=foo,bar`.
