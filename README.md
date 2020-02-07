@@ -18,7 +18,7 @@ To run and change the corpus:
 
 1. In a web browser go to: `http://127.0.0.1:5000`
 2. Click on `default`, `GET /occurrences` then `Try it out`. 
-3. Add a value in `q` field then click `Execute.
+3. Add a value in `q` field then click `Execute`.
 4. The response will be displayed.
 
-Instead of steps 1 to 4, it is possible directly enter in a browser `http:127.0.0.1:5000/occurrences?q=foo,bar`.
+Alternatively, in a browser go directly to: `http:127.0.0.1:5000/occurrences?q=foo,bar`
